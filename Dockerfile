@@ -52,7 +52,7 @@ ENV DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
 RUN python manage.py vendor_pull
 RUN python manage.py collectstatic --noinput
 
-# whithenoise is used to serve static files
+# whithenoise is used to serve static files -> later can be replaced with s3
 
 # set the Django default project name
 ARG PROJ_NAME="cfehome"
