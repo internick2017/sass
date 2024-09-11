@@ -7,6 +7,8 @@ from visits.models import PageVisit
 this_dir = pathlib.Path(__file__).resolve().parent
 
 def home_view(request, *args, **kwargs):
+    if request.user.is_authenticated:
+        print( request.user.first_name)
     return about_view(request, *args, **kwargs)
 
 
@@ -41,7 +43,7 @@ def my_old_home_page_view(request, *args, **kwargs):
 <body>
     <h1>{page_title} anything?</h1>
 </body>
-</html>    
+</html>
 """.format(**my_context) # page_title=my_title
     # html_file_path = this_dir / "home.html"
     # html_ = html_file_path.read_text()
